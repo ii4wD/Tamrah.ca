@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
   <title>Tamrah Bites — Premium Date Snacks for Coffee Lovers</title>
   <meta name="description" content="Tamrah Bites: Convenient single & double packs of premium dates. The perfect coffee companion. $1-$1.50 at your local coffee shop.">
   <style>
@@ -21,8 +21,7 @@
       --max:1100px;
     }
     *{box-sizing:border-box}
-    /* Smooth scrolling for better mobile experience */
-    html{scroll-behavior:smooth; -webkit-overflow-scrolling:touch}
+    html{scroll-behavior:smooth; -webkit-overflow-scrolling:touch; overflow-x:hidden}
     body{
       margin:0;
       color:var(--ink);
@@ -32,6 +31,9 @@
         radial-gradient(900px 500px at -100px 20%, #efe6dc 0%, transparent 55%) no-repeat,
         var(--cream);
       -webkit-text-size-adjust:100%;
+      overflow-x:hidden;
+      width:100%;
+      position:relative;
     }
     /* Header / Nav */
     header{
@@ -57,9 +59,11 @@
     .hero{
       max-width:var(--max); margin:28px auto 0; padding:18px;
       display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:center;
+      overflow:hidden;
     }
     .card{
       background:var(--white); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow);
+      max-width:100%; overflow:hidden;
     }
     .hero h1{font-size:44px; line-height:1.1; margin:0 0 10px}
     .hero p.lead{font-size:18px; color:var(--muted)}
@@ -72,8 +76,9 @@
     }
     /* Inline "drawing" */
     svg.palmSVG{width:90%; height:auto}
-    /* Sections */
-    main section{max-width:var(--max); margin:38px auto 0; padding:0 18px}
+    /* Main sections constrain */
+    main{width:100%; overflow-x:hidden}
+    main section{max-width:var(--max); margin:38px auto 0; padding:0 18px; overflow-x:hidden}
     section h2{font-size:32px; margin:0 0 14px}
     .two{display:grid; grid-template-columns:1fr auto; gap:22px}
     .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
