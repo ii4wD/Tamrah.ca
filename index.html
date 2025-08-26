@@ -20,19 +20,24 @@
       --shadow-soft:0 6px 18px rgba(0,0,0,.08);
       --max:1100px;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth; -webkit-overflow-scrolling:touch; overflow-x:hidden}
+    *{box-sizing:border-box; margin:0; padding:0}
+    html, body{
+      width:100%;
+      overflow-x:hidden;
+      position:relative;
+    }
+    html{scroll-behavior:smooth; -webkit-overflow-scrolling:touch}
     body{
-      margin:0;
       color:var(--ink);
       font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
-      background:
-        radial-gradient(1200px 600px at 100% -200px, #e6f3ea 0%, transparent 60%) no-repeat,
-        radial-gradient(900px 500px at -100px 20%, #efe6dc 0%, transparent 55%) no-repeat,
-        var(--cream);
+      background:var(--cream);
       -webkit-text-size-adjust:100%;
-      overflow-x:hidden;
+      max-width:100vw;
+    }
+    /* Container wrapper */
+    #wrapper{
       width:100%;
+      overflow-x:hidden;
       position:relative;
     }
     /* Header / Nav */
@@ -180,6 +185,7 @@
   </style>
 </head>
 <body>
+<div id="wrapper">
 <header>
   <nav class="nav" aria-label="Primary">
     <a href="#top" class="brand" aria-label="Go to top">
@@ -462,5 +468,6 @@
   }) : null;
   document.querySelectorAll('img[data-src]').forEach(img=>lazyObs && lazyObs.observe(img));
 </script>
+</div>
 </body>
 </html>
