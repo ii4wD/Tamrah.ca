@@ -1,0 +1,421 @@
+echo "# Tamrah.ca" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/ii4wD/Tamrah.ca.git
+git push -u origin main
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dates 101 — Healthy/Woke FAQ</title>
+  <meta name="description" content="Everything about dates: benefits, vitamins & minerals, blood sugar impact, varieties, storage, and how to enjoy them.">
+  <style>
+    :root{
+      --green:#2f6b3a;     /* palm frond green */
+      --green-2:#3d8b4e;
+      --brown:#7b4d2a;     /* date/bark brown */
+      --tan:#d6c6b4;
+      --cream:#fffdf7;
+      --white:#ffffff;
+      --ink:#1b1b1b;
+      --muted:#6b6b6b;
+      --radius:14px;
+      --shadow:0 10px 30px rgba(0,0,0,.10);
+      --shadow-soft:0 6px 18px rgba(0,0,0,.08);
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      background:
+        radial-gradient(1200px 600px at 100% -200px, #e6f3ea 0%, transparent 60%) no-repeat,
+        radial-gradient(900px 500px at -100px 20%, #efe6dc 0%, transparent 55%) no-repeat,
+        var(--cream);
+    }
+    /* Header / Nav */
+    header{
+      position:sticky; top:0; z-index:40;
+      backdrop-filter:saturate(120%) blur(8px);
+      background:color-mix(in srgb, var(--white) 80%, transparent);
+      border-bottom:1px solid #eee;
+    }
+    .nav{
+      max-width:var(--max); margin:auto; display:flex; gap:16px; align-items:center;
+      padding:12px 18px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink)}
+    .brand b{font-size:18px; letter-spacing:.3px}
+    .nav ul{list-style:none; margin:0 0 0 auto; padding:0; display:flex; gap:14px; flex-wrap:wrap}
+    .nav a.navlink{
+      color:var(--ink); text-decoration:none; padding:8px 12px; border-radius:999px;
+    }
+    .nav a.navlink.active, .nav a.navlink:hover{background:var(--tan); color:var(--ink)}
+    /* Hero */
+    .hero{
+      max-width:var(--max); margin:28px auto 0; padding:18px;
+      display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:center;
+    }
+    .card{
+      background:var(--white); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow);
+    }
+    .hero h1{font-size:44px; line-height:1.1; margin:0 0 10px}
+    .hero p.lead{font-size:18px; color:var(--muted)}
+    .badges{display:flex; gap:8px; margin:14px 0 0; flex-wrap:wrap}
+    .badge{background:var(--green); color:white; padding:6px 10px; border-radius:999px; font-size:13px}
+    .palm{
+      width:100%; height:380px; border-radius:var(--radius); overflow:hidden; background:linear-gradient(180deg,#e6f3ea,#fff);
+      box-shadow:var(--shadow);
+      display:grid; place-items:center;
+    }
+    /* Inline “drawing” */
+    svg.palmSVG{width:90%; height:auto}
+    /* Sections */
+    main section{max-width:var(--max); margin:38px auto 0; padding:0 18px}
+    section h2{font-size:32px; margin:0 0 14px}
+    .two{display:grid; grid-template-columns:1fr 1fr; gap:22px}
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .feature{
+      background:var(--white); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow-soft);
+      border-left:5px solid var(--green);
+    }
+    .feature h3{margin:0 0 6px}
+    .pill{display:inline-block; padding:2px 10px; border-radius:999px; font-size:12px; background:var(--tan); color:#4a3a2d}
+    /* Nutrients table */
+    table{width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:12px; background:var(--white); box-shadow:var(--shadow-soft)}
+    th,td{padding:12px 14px; text-align:left}
+    thead th{background:var(--green); color:white; position:sticky; top:0}
+    tbody tr:nth-child(odd){background:#fbf9f5}
+    /* FAQ */
+    .faq{display:grid; gap:12px}
+    details{
+      background:var(--white); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow-soft);
+      border:1px solid #eee;
+    }
+    summary{cursor:pointer; list-style:none; font-weight:600}
+    summary::-webkit-details-marker{display:none}
+    details[open]{border-color:var(--green-2)}
+    /* Callouts */
+    .callout{
+      display:flex; gap:16px; align-items:flex-start; background:linear-gradient(180deg,#fff,#f7fff9);
+      border:1px solid #e0f0e5; border-left:6px solid var(--green-2);
+      padding:16px; border-radius:12px;
+    }
+    .toc{position:sticky; top:76px; align-self:start}
+    .toc .toc-box{position:relative; background:var(--white); border:1px solid #eee; border-radius:12px; padding:14px; box-shadow:var(--shadow-soft)}
+    .toc a{display:block; padding:6px 8px; border-radius:6px; color:var(--ink); text-decoration:none}
+    .toc a.active, .toc a:hover{background:#eef7f0}
+    /* Footer */
+    footer{margin:48px 0 0; background:var(--brown); color:white; padding:28px 18px}
+    footer a{color:#ffe9c9}
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .two{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .toc{display:none}
+    }
+    /* Back to top */
+    .top{
+      position:fixed; right:18px; bottom:18px; z-index:50; opacity:0; pointer-events:none;
+      transition:.2s opacity ease, .2s transform ease;
+      transform:translateY(8px)
+    }
+    .top.show{opacity:1; pointer-events:auto; transform:none}
+    .top a{display:inline-block; padding:10px 12px; border-radius:999px; background:var(--green); color:white; text-decoration:none; box-shadow:var(--shadow)}
+  </style>
+</head>
+<body>
+<header>
+  <nav class="nav" aria-label="Primary">
+    <a href="#top" class="brand" aria-label="Go to top">
+      <!-- Mini logo: date cluster -->
+      <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="20" cy="22" r="10" fill="#8b5a39"/>
+        <circle cx="34" cy="28" r="10" fill="#7b4d2a"/>
+        <circle cx="26" cy="38" r="10" fill="#9b6a48"/>
+        <rect x="30" y="4" width="4" height="14" rx="2" fill="#2f6b3a"/>
+      </svg>
+      <b>Dates 101</b>
+    </a>
+    <ul>
+      <li><a class="navlink" href="#benefits">Benefits</a></li>
+      <li><a class="navlink" href="#nutrients">Vitamins & Minerals</a></li>
+      <li><a class="navlink" href="#blood-sugar">Blood Sugar</a></li>
+      <li><a class="navlink" href="#varieties">Varieties</a></li>
+      <li><a class="navlink" href="#faq">FAQ</a></li>
+      <li><a class="navlink" href="#sources">Sources</a></li>
+    </ul>
+  </nav>
+</header>
+
+<a id="top"></a>
+<section class="hero" aria-labelledby="title">
+  <div class="card">
+    <h1 id="title">Dates, but make it healthy 🌴</h1>
+    <p class="lead">
+      Nature’s caramel—packed with fiber, minerals, and antioxidants. Vegan, halal, naturally gluten-free, and a great swap for ultra-processed sweets when you want something real.
+    </p>
+    <div class="badges">
+      <span class="badge">High Fiber</span>
+      <span class="badge">Potassium-Rich</span>
+      <span class="badge">Antioxidants</span>
+      <span class="badge">Low-to-Medium GI*</span>
+    </div>
+    <p style="margin:10px 0 0;color:var(--muted);font-size:13px">*Varies by variety, ripeness, and portion — see “Blood Sugar”.</p>
+  </div>
+  <figure class="palm" aria-label="Stylized date palm illustration">
+    <!-- simple “drawing”: date palm SVG -->
+    <svg class="palmSVG" viewBox="0 0 600 500" role="img" aria-labelledby="palmTitle palmDesc">
+      <title id="palmTitle">Date Palm</title><desc id="palmDesc">Green palm leaves with brown trunk and date clusters</desc>
+      <defs>
+        <linearGradient id="leaf" x1="0" x2="1">
+          <stop offset="0" stop-color="#3d8b4e"/><stop offset="1" stop-color="#2f6b3a"/>
+        </linearGradient>
+        <linearGradient id="bark" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="#a37653"/><stop offset="1" stop-color="#7b4d2a"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="600" height="500" fill="url(#sky)"></rect>
+      <!-- trunk -->
+      <path d="M290,480 C270,330 260,260 300,120 C340,260 330,330 310,480 Z" fill="url(#bark)"/>
+      <!-- leaves -->
+      <g fill="url(#leaf)" stroke="#2a5b33" stroke-width="2" stroke-linecap="round">
+        <path d="M300,120 C420,80 500,90 560,60"/>
+        <path d="M300,120 C420,140 500,160 560,190"/>
+        <path d="M300,120 C180,80 100,90 40,60"/>
+        <path d="M300,120 C180,140 100,160 40,190"/>
+        <path d="M300,120 C360,30 380,10 420,0"/>
+        <path d="M300,120 C240,30 220,10 180,0"/>
+      </g>
+      <!-- date clusters -->
+      <g>
+        <ellipse cx="360" cy="170" rx="48" ry="28" fill="#8b5a39" opacity=".95"/>
+        <ellipse cx="240" cy="170" rx="48" ry="28" fill="#9b6a48" opacity=".95"/>
+      </g>
+    </svg>
+  </figure>
+</section>
+
+<main>
+  <section id="benefits" aria-labelledby="benefits-h">
+    <div class="two">
+      <div>
+        <h2 id="benefits-h">Why dates are a smart snack</h2>
+        <div class="grid-3" role="list">
+          <article class="feature" role="listitem">
+            <h3>1) Fiber for fullness</h3>
+            <p>Dietary fiber slows digestion, supports gut microbes, and helps you feel satisfied — which means fewer snack crashes.</p>
+            <span class="pill">Gut health</span>
+          </article>
+          <article class="feature" role="listitem">
+            <h3>2) Real nutrients</h3>
+            <p>Dates contribute potassium, magnesium, copper, and B-vitamins plus protective polyphenol antioxidants.</p>
+            <span class="pill">Micronutrients</span>
+          </article>
+          <article class="feature" role="listitem">
+            <h3>3) Better than candy</h3>
+            <p>Compared to refined sweets, dates come with fiber and phytonutrients that temper the blood-sugar rise and keep energy steadier.</p>
+            <span class="pill">Whole food</span>
+          </article>
+        </div>
+        <div class="callout" style="margin-top:14px">
+          <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24"><path fill="var(--green)" d="M11 7h2v6h-2zM11 15h2v2h-2z"/><path fill="var(--green)" d="M1 21h22L12 2 1 21z"/></svg>
+          <div>
+            <strong>Heads up:</strong> Dates are naturally sweet. Portion size still matters — especially if you manage blood sugar. See the Blood Sugar section for evidence-based tips.
+          </div>
+        </div>
+      </div>
+      <aside class="toc" aria-label="On this page">
+        <div class="toc-box">
+          <strong>Quick Nav</strong>
+          <a href="#benefits">Benefits</a>
+          <a href="#nutrients">Vitamins & Minerals</a>
+          <a href="#blood-sugar">Blood Sugar</a>
+          <a href="#varieties">Varieties</a>
+          <a href="#howto">How to enjoy</a>
+          <a href="#storage">Storage & Safety</a>
+          <a href="#faq">FAQ</a>
+          <a href="#sources">Sources</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="nutrients" aria-labelledby="nutrients-h">
+    <h2 id="nutrients-h">What’s inside: vitamins & minerals</h2>
+    <p>
+      Typical dried dates provide complex carbs plus fiber, and contribute potassium, magnesium, copper, manganese, and vitamin B6. Exact values vary by variety and ripeness.
+    </p>
+    <table aria-label="Representative nutrients per 100 g dried dates (approximate)">
+      <thead><tr><th>Nutrient</th><th>What it helps</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Fiber</strong> (~7–8 g)</td><td>Satiety, gut health, regularity</td></tr>
+        <tr><td><strong>Potassium</strong> (high)</td><td>Fluid balance, nerve & muscle function</td></tr>
+        <tr><td><strong>Magnesium</strong></td><td>Energy metabolism, glucose regulation</td></tr>
+        <tr><td><strong>Copper & Manganese</strong></td><td>Antioxidant enzymes, connective tissue</td></tr>
+        <tr><td><strong>Vitamin B6</strong></td><td>Nervous system & amino-acid metabolism</td></tr>
+        <tr><td><strong>Polyphenols</strong></td><td>Antioxidant and anti-inflammatory activity</td></tr>
+      </tbody>
+    </table>
+    <p style="color:var(--muted);font-size:13px">Data synthesized from USDA FoodData Central and clinical/nutrition reviews in Sources.</p>
+  </section>
+
+  <section id="blood-sugar" aria-labelledby="blood-h">
+    <h2 id="blood-h">Blood sugar, insulin & energy</h2>
+    <div class="two">
+      <div class="card">
+        <h3>What the evidence says</h3>
+        <ul>
+          <li>Across studies, dates generally fall in the <em>low-to-medium</em> GI range, depending on variety and serving size.</li>
+          <li>In moderation, dates <em>have not been shown to worsen glycemic control</em> in people with type 2 diabetes — likely thanks to their fiber and polyphenols.</li>
+          <li>Compared with refined sugar, whole dates tend to produce a steadier curve (less “sugar crash”), especially when paired with protein/fat.</li>
+        </ul>
+        <p class="callout" style="margin-top:10px"><strong>Practical tip:</strong> A mindful snack is 2 large or 3 small dates with nuts, yogurt, or cheese — fiber + fat/protein = smoother energy.</p>
+      </div>
+      <div class="card">
+        <h3>Make it work for you</h3>
+        <ul>
+          <li>Choose whole dates over syrups.</li>
+          <li>Pair with protein/fat (nuts, tahini) and consider smaller portions before long sedentary periods.</li>
+          <li>If you track glucose, test your response — varieties and bodies differ.</li>
+        </ul>
+        <p style="font-size:13px;color:var(--muted)">This is nutrition guidance, not medical advice. If you manage diabetes, follow your clinician’s plan.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="varieties" aria-labelledby="varieties-h">
+    <h2 id="varieties-h">Popular varieties</h2>
+    <div class="grid-3">
+      <article class="feature">
+        <h3>Medjool</h3>
+        <p>Large, very soft, caramel-like. Often used as a natural sweetener; typically low-to-medium GI.</p>
+      </article>
+      <article class="feature">
+        <h3>Sukkari</h3>
+        <p>Golden and delicate with a sweet crunch near the crown when fresher; prized in Saudi Arabia.</p>
+      </article>
+      <article class="feature">
+        <h3>Khalas</h3>
+        <p>Balanced sweetness, soft-sticky texture; excellent with Arabic coffee.</p>
+      </article>
+    </div>
+    <p style="color:var(--muted);font-size:13px;margin-top:8px">Taste/texture vary by harvest and curing; GI can vary by variety and ripeness.</p>
+  </section>
+
+  <section id="howto" aria-labelledby="howto-h">
+    <h2 id="howto-h">How to enjoy dates (the woke way)</h2>
+    <div class="grid-3">
+      <div class="feature">
+        <h3>Snack plate</h3>
+        <p>2 dates + a handful of almonds or walnuts. Add orange zest and a pinch of sea salt.</p>
+      </div>
+      <div class="feature">
+        <h3>Stuffed energy bites</h3>
+        <p>Fill with tahini/peanut butter, sprinkle sesame, chill. Dessert, but better.</p>
+      </div>
+      <div class="feature">
+        <h3>Blend for sweetness</h3>
+        <p>Soak briefly, then blend into smoothies or sauces instead of refined sugar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="storage" aria-labelledby="storage-h">
+    <h2 id="storage-h">Storage & safety</h2>
+    <ul class="card">
+      <li>Room temp for short term; refrigerate or freeze for longer freshness and to retain moisture.</li>
+      <li>Look for intact skins; harmless “sugar bloom” can appear as white crystals on the surface.</li>
+      <li>Allergen-friendly fruit, but stuffed/flavored dates may contain nuts, sesame, or gluten from processing — check labels.</li>
+    </ul>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">FAQ</h2>
+    <div class="faq" role="list">
+      <details role="listitem">
+        <summary>Do dates spike insulin?</summary>
+        <div>
+          <p>Whole dates have fiber and polyphenols that slow absorption. Studies place most dates in the low-to-medium GI range, and moderate portions haven’t shown harm to glycemic control — but response varies by person and variety. See Sources.</p>
+        </div>
+      </details>
+      <details role="listitem">
+        <summary>How many dates are “healthy” per day?</summary>
+        <div>
+          <p>A reasonable snack portion is about 2 large or 3 small dates, especially if paired with protein/fat. If you track calories or glucose, fit them into your targets.</p>
+        </div>
+      </details>
+      <details role="listitem">
+        <summary>Are dates good for workouts?</summary>
+        <div>
+          <p>Yes — they’re a quick source of carbs plus potassium. Pair with protein after training for recovery.</p>
+        </div>
+      </details>
+      <details role="listitem">
+        <summary>Are dates better than white sugar?</summary>
+        <div>
+          <p>For most goals, yes: dates are a whole food with fiber, minerals, and phytochemicals. They still add sugars and calories, so think “better sweet,” not “free food.”</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="sources" aria-labelledby="sources-h">
+    <h2 id="sources-h">Sources & further reading</h2>
+    <ol class="card">
+      <li>USDA FoodData Central — nutrient data for dates (Foundation Foods & SR Legacy). <a href="https://fdc.nal.usda.gov/" target="_blank" rel="noopener">fdc.nal.usda.gov</a></li>
+      <li>Cleveland Clinic: “The Sweet Health Benefits of Dates” (June 19, 2023). <a href="https://health.clevelandclinic.org/benefits-of-dates" target="_blank" rel="noopener">health.clevelandclinic.org</a></li>
+      <li>AlGeffari et&nbsp;al. “Glycemic indices, loads and responses for common Saudi dates,” <em>Nutr Hosp</em> (2016). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6074203/" target="_blank" rel="noopener">PMCID: PMC6074203</a></li>
+      <li>Mirghani et&nbsp;al. “Dates fruits effects on blood glucose among patients with diabetes mellitus,” <em>J Taibah Univ Med Sci</em> (2021). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8281151/" target="_blank" rel="noopener">PMCID: PMC8281151</a></li>
+      <li>Mirghani et&nbsp;al. “Effect of dates on blood glucose and lipid profile…” (2024 review). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11229973/" target="_blank" rel="noopener">PMCID: PMC11229973</a></li>
+      <li>Healthline: “Medjool Dates: Nutrition, Benefits, and Uses” (updated 2025). <a href="https://www.healthline.com/nutrition/medjool-dates" target="_blank" rel="noopener">healthline.com</a></li>
+      <li>Verywell Health: “Can Eating 2 Dates a Day…” (2025). <a href="https://www.verywellhealth.com/two-dates-a-day-for-health-benefits-11681898" target="_blank" rel="noopener">verywellhealth.com</a></li>
+    </ol>
+  </section>
+</main>
+
+<footer>
+  <div style="max-width:var(--max);margin:auto">
+    <p><strong>Dates 101</strong> · Whole-food sweetness with benefits. Built with love for palm trees 🌴</p>
+    <p style="font-size:13px;opacity:.9">Disclaimer: General nutrition information, not medical advice. If you live with diabetes or other conditions, consult your clinician.</p>
+  </div>
+</footer>
+
+<!-- Smart nav highlighting + “back to top” -->
+<div class="top" id="topBtn"><a href="#top" aria-label="Back to top">↑ Top</a></div>
+<script>
+  // Active nav highlight
+  const links=[...document.querySelectorAll('.nav a.navlink')];
+  const ids=links.map(a=>document.querySelector(a.getAttribute('href')));
+  const obs=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        const id='#'+e.target.id;
+        links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')===id));
+      }
+    })
+  },{rootMargin:'-40% 0px -55% 0px',threshold:0});
+  ids.forEach(s=>s && obs.observe(s));
+  // Back-to-top button
+  const topBtn=document.getElementById('topBtn');
+  const showTop=()=>{ if(window.scrollY>600) topBtn.classList.add('show'); else topBtn.classList.remove('show'); };
+  document.addEventListener('scroll', showTop, {passive:true});
+  showTop();
+  // Lazy-load external images if you add any with data-src
+  const lazyObs = 'IntersectionObserver' in window ? new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const img=entry.target; img.src=img.dataset.src; lazyObs.unobserve(img);
+      }
+    });
+  }) : null;
+  document.querySelectorAll('img[data-src]').forEach(img=>lazyObs && lazyObs.observe(img));
+</script>
+</body>
+</html>
