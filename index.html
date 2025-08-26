@@ -21,7 +21,8 @@
       --max:1100px;
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    /* Smooth scrolling for better mobile experience */
+    html{scroll-behavior:smooth; -webkit-overflow-scrolling:touch}
     body{
       margin:0;
       color:var(--ink);
@@ -30,12 +31,15 @@
         radial-gradient(1200px 600px at 100% -200px, #e6f3ea 0%, transparent 60%) no-repeat,
         radial-gradient(900px 500px at -100px 20%, #efe6dc 0%, transparent 55%) no-repeat,
         var(--cream);
+      -webkit-text-size-adjust:100%;
     }
     /* Header / Nav */
     header{
       position:sticky; top:0; z-index:40;
       backdrop-filter:saturate(120%) blur(8px);
+      -webkit-backdrop-filter:saturate(120%) blur(8px);
       background:color-mix(in srgb, var(--white) 80%, transparent);
+      background:rgba(255,255,255,0.85);
       border-bottom:1px solid #eee;
     }
     .nav{
@@ -44,7 +48,7 @@
     }
     .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink)}
     .brand b{font-size:18px; letter-spacing:.3px}
-    .nav ul{list-style:none; margin:0 0 0 auto; padding:0; display:flex; gap:14px; flex-wrap:wrap}
+    .nav ul{list-style:none; margin:0 0 0 auto; padding:0; display:flex; gap:14px; flex-wrap:wrap; align-items:center}
     .nav a.navlink{
       color:var(--ink); text-decoration:none; padding:8px 12px; border-radius:999px;
     }
@@ -80,7 +84,8 @@
     .feature h3{margin:0 0 6px}
     .pill{display:inline-block; padding:2px 10px; border-radius:999px; font-size:12px; background:var(--tan); color:#4a3a2d}
     /* Nutrients table */
-    table{width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:12px; background:var(--white); box-shadow:var(--shadow-soft)}
+    .table-wrapper{overflow-x:auto; -webkit-overflow-scrolling:touch}
+    table{width:100%; min-width:400px; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:12px; background:var(--white); box-shadow:var(--shadow-soft)}
     th,td{padding:12px 14px; text-align:left}
     thead th{background:var(--green); color:white; position:sticky; top:0}
     tbody tr:nth-child(odd){background:#fbf9f5}
@@ -88,9 +93,9 @@
     .faq{display:grid; gap:12px}
     details{
       background:var(--white); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow-soft);
-      border:1px solid #eee;
+      border:1px solid #eee; cursor:pointer;
     }
-    summary{cursor:pointer; list-style:none; font-weight:600}
+    summary{cursor:pointer; list-style:none; font-weight:600; -webkit-tap-highlight-color:transparent}
     summary::-webkit-details-marker{display:none}
     details[open]{border-color:var(--green-2)}
     /* Callouts */
@@ -108,10 +113,56 @@
     footer a{color:#ffe9c9}
     /* Responsive */
     @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
+      .hero{grid-template-columns:1fr; gap:20px}
+      .hero h1{font-size:36px}
       .two{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr; gap:14px}
       .toc{display:none}
+      .nav{padding:10px 14px}
+      .nav ul{gap:8px}
+      .nav a.navlink{padding:6px 10px; font-size:14px}
+      main section{margin:28px auto 0; padding:0 14px}
+      section h2{font-size:28px}
+      .card{padding:20px}
+      .feature{padding:18px}
+      table{font-size:14px}
+      th,td{padding:10px 12px}
+      .palm{height:300px}
+      .badges{font-size:12px}
+      .badge{padding:5px 9px; font-size:12px}
+      footer{padding:24px 14px}
+    }
+    @media (max-width: 600px){
+      .hero h1{font-size:32px}
+      .hero p.lead{font-size:16px}
+      section h2{font-size:24px}
+      .nav{flex-wrap:wrap; gap:10px}
+      .nav ul{width:100%; justify-content:space-around; margin:8px 0 0 0}
+      .nav a.navlink{padding:5px 8px; font-size:13px}
+      .brand div b{font-size:18px}
+      .brand div span{font-size:10px}
+      .brand img{height:35px}
+      .palm{height:250px}
+      table{display:block; overflow-x:auto}
+      .callout{flex-direction:column; gap:10px}
+      details{padding:12px 14px}
+    }
+    @media (max-width: 480px){
+      .hero h1{font-size:28px; line-height:1.2}
+      .hero p.lead{font-size:15px; line-height:1.5}
+      section h2{font-size:22px; margin:0 0 10px}
+      .card{padding:16px; border-radius:12px}
+      .feature{padding:16px; margin-bottom:8px}
+      .feature h3{font-size:16px}
+      .feature p{font-size:14px}
+      .badges{gap:6px}
+      .badge{padding:4px 8px; font-size:11px}
+      main section{margin:20px auto 0}
+      #coffee{padding:24px 14px}
+      table{font-size:13px}
+      th,td{padding:8px 10px}
+      footer{font-size:14px}
+      footer p{margin:8px 0}
     }
     /* Back to top */
     .top{
@@ -236,6 +287,7 @@
     <p>
       Typical dried dates provide complex carbs plus fiber, and contribute potassium, magnesium, copper, manganese, and vitamin B6. Exact values vary by variety and ripeness.
     </p>
+    <div class="table-wrapper">
     <table aria-label="Representative nutrients per 100 g dried dates (approximate)">
       <thead><tr><th>Nutrient</th><th>What it helps</th></tr></thead>
       <tbody>
@@ -247,6 +299,7 @@
         <tr><td><strong>Polyphenols</strong></td><td>Antioxidant and anti-inflammatory activity</td></tr>
       </tbody>
     </table>
+    </div>
     <p style="color:var(--muted);font-size:13px">Data synthesized from USDA FoodData Central and clinical/nutrition reviews in Sources.</p>
   </section>
 
